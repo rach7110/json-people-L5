@@ -7,12 +7,18 @@ use App\Http\Requests;
 use Input;
 use Redirect;
 use App\People;
+use View;
 
 
 class PeopleController extends Controller
 {
 
-    function index() {}
+    function index() {
+
+      $people = People::all();
+
+      return View::make('people.index')->with(array('people' => $people));
+    }
 
     function store() 
     {
