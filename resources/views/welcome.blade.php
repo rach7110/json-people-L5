@@ -18,7 +18,7 @@
         <textarea name="people" rows="10" cols="30"></textarea>
       </div>
 
-      <input type="submit" val="submit">
+      <input type="submit" class="btn btn-primary" val="submit">
 
       <div class="people-link">
         <a href="">Y'alls Inputs</a>

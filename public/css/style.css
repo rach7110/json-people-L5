@@ -1,0 +1,40 @@
+
+
+*, body {
+  margin:0;
+  font-family:'Lato', sans-serif;
+  text-align:center;
+  color: #999;
+}
+
+.people-link {
+  margin-top: 30px;
+}
+
+.welcome {
+  /*width: 300px;*/
+  /*height: 200px;*/
+  /*position: absolute;*/
+  /*left: 50%;*/
+  /*top: 50%;*/
+  /*margin-left: -150px;*/
+  /*margin-top: -100px;*/
+}
+
+a, a:visited {
+  text-decoration:none;
+}
+
+h1 {
+  font-size: 32px;
+  margin: 16px 0 0 0;
+}
+
+ul{
+  padding-top: 10px;
+  padding-right: 40px;
+}
+
+textarea[name="people"] {
+  border-radius: 4px;
+}
