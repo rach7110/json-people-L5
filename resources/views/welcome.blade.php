@@ -21,9 +21,10 @@
       <input type="submit" class="btn btn-primary" val="submit">
 
       <div class="people-link">
-        <a href="">Y'alls Inputs</a>
+        <a href="{{route('people')}}">Y'alls Inputs</a>
       </div>
-    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+      
+      <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
     </form>
 

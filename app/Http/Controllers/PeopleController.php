@@ -11,6 +11,9 @@ use App\People;
 
 class PeopleController extends Controller
 {
+
+    function index() {}
+
     function store() 
     {
 

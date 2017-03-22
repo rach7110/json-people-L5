@@ -19,12 +19,12 @@ Route::get('/', function () {
   return view('welcome');
 });
 
+// VIEW ALL THE PEOPLE
+Route::get('people', 'PeopleController@index')
+->name('people');
+
 // ADD NEW PEOPLE
 Route::post('people', 'PeopleController@store')
   ->name('people');
 
 
-// VIEW ALL THE PEOPLE
-// Route::get('people', function () {
-//   return view('people.index');
-// })->name('people');
