@@ -1,45 +1,29 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Laravel</title>
+@extends('layouts.master')
 
-        <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
+@section('title')
+  Welcome
+@stop
 
-        <style>
-            html, body {
-                height: 100%;
-            }
 
-            body {
-                margin: 0;
-                padding: 0;
-                width: 100%;
-                display: table;
-                font-weight: 100;
-                font-family: 'Lato';
-            }
+@section('content')
+  <div class="welcome">
+    <h1>Hello</h1>
+    <form action="" method="post">
+      
+      <div>
+        <label>Please enter your json object</label>
+      </div>
 
-            .container {
-                text-align: center;
-                display: table-cell;
-                vertical-align: middle;
-            }
+      <div>
+        <textarea name="people" rows="10" cols="30"></textarea>
+      </div>
 
-            .content {
-                text-align: center;
-                display: inline-block;
-            }
+      <input type="submit" val="submit">
 
-            .title {
-                font-size: 96px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <div class="content">
-                <div class="title">Laravel 5</div>
-            </div>
-        </div>
-    </body>
-</html>
+      <div class="people-link">
+        <a href="">Y'alls Inputs</a>
+      </div>
+
+    </form>
+  </div>
+@stop
