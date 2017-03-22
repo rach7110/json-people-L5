@@ -12,7 +12,12 @@ class CreatePeopleTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('people', function(Blueprint $table) {
+                $table->increments('id');
+                $table->string('emails');
+                $table->string('age_sorted');
+                $table->timestamps();
+        });
     }
 
     /**
