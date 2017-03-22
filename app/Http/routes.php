@@ -11,6 +11,20 @@
 |
 */
 
+use App\People;
+use Illuminate\Http\Request;
+
+// WELCOME PAGE
 Route::get('/', function () {
-    return view('welcome');
+  return view('welcome');
 });
+
+// ADD NEW PEOPLE
+Route::post('people', 'PeopleController@store')
+  ->name('people');
+
+
+// VIEW ALL THE PEOPLE
+// Route::get('people', function () {
+//   return view('people.index');
+// })->name('people');

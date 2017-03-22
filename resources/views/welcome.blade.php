@@ -8,7 +8,7 @@
 @section('content')
   <div class="welcome">
     <h1>Hello</h1>
-    <form action="" method="post">
+    <form action="{{route('people')}}" method="post">
       
       <div>
         <label>Please enter your json object</label>
@@ -23,7 +23,9 @@
       <div class="people-link">
         <a href="">Y'alls Inputs</a>
       </div>
+    <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
     </form>
+
   </div>
 @stop
