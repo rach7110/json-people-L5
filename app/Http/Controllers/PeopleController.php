@@ -28,7 +28,7 @@ class PeopleController extends Controller
     // DISPLAY ERROR MESSAGE IF USER DID NOT ENTER CORRECT JSON FORMAT":
       if( !$json )
       {
-        return Redirect::to('/')->with('message', "Oops! It appears you didn't enter proper json format. Here's a quick reference guide: <a href='http://secretgeek.net/json_3mins' target='_blank'>3-Minute Guide to Json</a>")->with('alert-class', "alert-warning");
+        return Redirect::to('/')->with('message', "Oops! It appears you didn't enter proper json format.")->with('alert-class', "alert-warning");
       }
 
     // GET EMAILS &
