@@ -1,13 +1,10 @@
 <?php
 
-
-// HEROKU 
-
-    // $url = parse_url(getenv("DATABASE_URL"));
-    // $host = $url["host"];
-    // $username = $url["user"];
-    // $password = $url["pass"];
-    // $database = substr($url["path"], 1);
+// HEROKU CONFIGURATION: 
+  $heroku_host = parse_url(getenv("DATABASE_URL"))["host"];
+  $heroku_database = substr(parse_url(getenv("DATABASE_URL"))["path"], 1);
+  $heroku_username = parse_url(getenv("DATABASE_URL"))["user"];
+  $heroku_password = parse_url(getenv("DATABASE_URL"))["pass"];
 
 
 return [
@@ -86,6 +83,17 @@ return [
             'charset' => 'utf8',
             'prefix' => '',
             'schema' => 'public',
+        ],
+
+        'heroku' => [  
+            'driver'   => 'pgsql',
+            'host'     => $heroku_host,
+            'database' => $heroku_database,
+            'username' => $heroku_username,
+            'password' => $heroku_password,
+            'charset'  => 'utf8',
+            'prefix'   => '',
+            'schema'   => 'public',
         ],
 
 
