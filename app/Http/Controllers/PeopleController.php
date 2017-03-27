@@ -9,12 +9,10 @@ use Redirect;
 use App\People;
 use View;
 
-
 class PeopleController extends Controller
 {
 
     function index() {
-
       $people = People::all();
 
       return View::make('people.index')->with(array('people' => $people));
@@ -22,47 +20,23 @@ class PeopleController extends Controller
 
     function store() 
     {
-
       $json = json_decode(Input::get('people'));
 
-    // DISPLAY ERROR MESSAGE IF USER DID NOT ENTER CORRECT JSON FORMAT":
+      // DISPLAY ERROR MESSAGE IF NOT JSON FORMAT":
       if( !$json )
       {
         return Redirect::to('/')->with('message', "Oops! It appears you didn't enter proper json format.")->with('alert-class', "alert-warning");
       }
 
-    // GET EMAILS &
-    // CREATE FULL NAME VALUE FOR PEOPLE:
-    $people_data = $json->data;
-    $emails = [];
+      $people = new People; 
+      $people_with_full_name = $people->full_name($json);
 
-    foreach ($people_data as $person) {
-      $emails[] = $person->email;
-      $person->name = $person->first_name . ' ' . $person->last_name; // INSERT A 'NAME' VALUE
-    }
+      $people->age_sorted = $people->descend_by_age($people_with_full_name);
+      $people->emails = $people->email_list($json);
 
-    $email_list = implode(',', $emails);
-
-    //SORT PEOPLE DESCENDING BY AGE:
-    usort($people_data, function($a, $b) { 
-      return $a->age > $b->age ? -1 : 1; //Compare ages
-    });
-
-    $age_sorted = new \stdClass();
-    $age_sorted->data = $people_data;
-
-    $json_age_sorted = json_encode($age_sorted);
-
-    // SAVE REFORMATTED PEOPLE INFO:
-    $people = new People;
-    $people->emails = $email_list;
-    $people->age_sorted = $json_age_sorted;
-
-    if ( $people->save() )
-    {
-      return Redirect::to('/')->with('message', "You have successfully added some people to the database!")->with('alert-class', "alert-success");
-
-    }
-
+      if ( $people->save() )
+      {
+        return Redirect::to('/')->with('message', "You have successfully added some people to the database!")->with('alert-class', "alert-success");
+      }
     }
 }
