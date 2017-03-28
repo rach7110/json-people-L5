@@ -7,8 +7,13 @@
   color: #999;
 }
 
+#json-exmaple {
+  margin-top: 15px;
+}
+
 .people-link {
   margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 .welcome {
