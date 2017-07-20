@@ -8,6 +8,7 @@ use Input;
 use Redirect;
 use App\People;
 use View;
+use App\Exceptions\JsonPeopleHandler;
 
 class PeopleController extends Controller
 {
@@ -28,15 +29,21 @@ class PeopleController extends Controller
         return Redirect::to('/')->with('message', "Oops! It appears you didn't enter proper json format.")->with('alert-class', "alert-warning");
       }
 
-      $people = new People; 
-      $people_with_full_name = $people->full_name($json);
-
-      $people->age_sorted = $people->descend_by_age($people_with_full_name);
-      $people->emails = $people->email_list($json);
-
-      if ( $people->save() )
+      // validation of json parameters:
+      $validated = (new JsonPeopleHandler($json))->validate();
+      
+      if($validated)
       {
-        return Redirect::to('/')->with('message', "You have successfully added some people to the database!")->with('alert-class', "alert-success");
+        $people = new People; 
+        $people_with_full_name = $people->full_name($json);
+
+        $people->age_sorted = $people->descend_by_age($people_with_full_name);
+        $people->emails = $people->email_list($json);
+
+        if ($people->save())
+        {
+          return Redirect::to('/')->with('message', "You have successfully added some people to the database!")->with('alert-class', "alert-success");
+        }
       }
     }
 }
