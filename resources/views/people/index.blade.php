@@ -10,11 +10,9 @@
 
   <div>
 
-      @if (count($people) > 0)
-        <div class="panel panel-default">
-          <div class="panel-body">
-            <table class="table table-striped task-table">
-
+      @if (count($people) > 0) 
+      <div class="table-responsive">         
+            <table class="table table-striped">
               <!-- Table Headings -->
               <thead>
                 <th>Emails</th>
@@ -25,7 +23,6 @@
               <tbody>
                 @foreach ($people as $persons)               
                   <tr>
-                    <!-- Task Name -->
                     <td class="table-text">
                       <div>{{ $persons->emails }}</div>
                     </td>
@@ -39,7 +36,6 @@
 
             </table>
           </div>
-        </div>
     @endif
   </div>
 
