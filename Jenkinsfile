@@ -10,7 +10,6 @@ pipeline {
     stage('Build') {
       steps {
         sh 'composer install'
-        sh 'sh \'chmod -R 755 ./vendor\''
       }
     }
     stage('Test') {
