@@ -1,13 +1,18 @@
 <?php
 
 // HEROKU CONFIGURATION: 
+
+$heroku_host ='';
+$heroku_database = '';
+$heroku_username = '';
+$heroku_password = '';
+
 if(env('APP_ENV') == "production") {
   $heroku_host = parse_url(getenv("DATABASE_URL"))["host"];
   $heroku_database = substr(parse_url(getenv("DATABASE_URL"))["path"], 1);
   $heroku_username = parse_url(getenv("DATABASE_URL"))["user"];
   $heroku_password = parse_url(getenv("DATABASE_URL"))["pass"];
 }
-
 
 return [
 
