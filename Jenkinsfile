@@ -14,7 +14,7 @@ pipeline {
     }
     stage('Deploy') {
       steps {
-        sh 'sh "echo \'WE ARE DEPLOYING\'"'
+        echo 'WE ARE DEPLOYING'
         input 'Look good? Shall we deploy?'
       }
     }
