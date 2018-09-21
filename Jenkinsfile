@@ -17,7 +17,7 @@ pipeline {
         APP_ENV = 'local'
       }
       steps {
-        sh 'sh \'vendor/bin/phpunit\''
+        sh 'sh \'./vendor/bin/phpunit\''
       }
     }
   }
