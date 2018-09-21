@@ -17,7 +17,13 @@ pipeline {
         APP_ENV = 'local'
       }
       steps {
-        sh 'sh "php ./vendor/bin/phpunit"'
+        sh '// sh "./vendor/bin/phpunit"'
+      }
+    }
+    stage('Deploy') {
+      steps {
+        sh 'sh "echo \'WE ARE DEPLOYING\'"'
+        input 'Look good? Shall we deploy?'
       }
     }
   }
