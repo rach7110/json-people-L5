@@ -12,14 +12,6 @@ pipeline {
         sh 'composer install'
       }
     }
-    stage('Test') {
-      environment {
-        APP_ENV = 'local'
-      }
-      steps {
-        sh '// sh "./vendor/bin/phpunit"'
-      }
-    }
     stage('Deploy') {
       steps {
         sh 'sh "echo \'WE ARE DEPLOYING\'"'
