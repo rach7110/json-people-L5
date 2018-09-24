@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'echo $PATH'
+        sh 'which docker'
       }
     }
     stage('Deploy') {
