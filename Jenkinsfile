@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'docker-composer up -d'
+        sh 'echo $PATH'
       }
     }
     stage('Deploy') {
