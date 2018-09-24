@@ -4,7 +4,7 @@ pipeline {
     stage('Build') {
       steps {
         sh 'export PATH=$PATH:/usr/bin/docker'
-        sh 'echo $PATH'
+        sh 'docker-composer up -d'
       }
     }
     stage('Deploy') {
