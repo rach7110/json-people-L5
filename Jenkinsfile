@@ -10,7 +10,6 @@ pipeline {
     stage('Build') {
       steps {
         sh 'composer install'
-        sh 'npm run dev'
       }
     }
     stage('Deploy') {
