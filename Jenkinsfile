@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'which docker'
+        sh 'export PATH=$PATH:/usr/bin/docker'
         sh 'echo $PATH'
       }
     }
